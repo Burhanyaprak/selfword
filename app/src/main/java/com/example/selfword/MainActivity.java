@@ -60,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
                     WordEntity data = new WordEntity();
                     data.setThe_word(sText);
                     data.setMean_of_word(sMean);
+                    data.setStatus_of_word("1");
                     wordDatabase.wordDao().insert(data);
 
 

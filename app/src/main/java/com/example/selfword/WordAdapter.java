@@ -45,6 +45,7 @@ public class WordAdapter extends RecyclerView.Adapter <WordAdapter.ViewHolder> {
 
         holder.textView_word.setText(wordEntity.getThe_word());
         holder.textView_mean.setText(wordEntity.getMean_of_word());
+        holder.textView_status.setText(wordEntity.getStatus_of_word());
         holder.btn_edit_word.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -53,6 +54,7 @@ public class WordAdapter extends RecyclerView.Adapter <WordAdapter.ViewHolder> {
                 int sID = wordEntity.getID();
                 String str_the_word = wordEntity.getThe_word();
                 String str_mean_of_word = wordEntity.getMean_of_word();
+                String str_status_of_word = wordEntity.getStatus_of_word();
 
                 Dialog dialog = new Dialog(context);
 
@@ -68,10 +70,15 @@ public class WordAdapter extends RecyclerView.Adapter <WordAdapter.ViewHolder> {
 
                 EditText editText_dialog_word = dialog.findViewById(R.id.edit_dialog_word);
                 EditText editText_dialog_mean = dialog.findViewById(R.id.edit_dialog_mean);
+                EditText editText_dialog_status = dialog.findViewById(R.id.edit_dialog_status);
+
+
                 Button btUpdate = dialog.findViewById(R.id.btn_dialog_update);
 
                 editText_dialog_word.setText(str_the_word);
                 editText_dialog_mean.setText(str_mean_of_word);
+                editText_dialog_status.setText(str_status_of_word);
+
                 btUpdate.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -109,13 +116,15 @@ public class WordAdapter extends RecyclerView.Adapter <WordAdapter.ViewHolder> {
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView textView_word, textView_mean;
+        TextView textView_word, textView_mean, textView_status;
         ImageView btn_edit_word, btn_delete_word;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             textView_word = itemView.findViewById(R.id.text_view_word);
             textView_mean = itemView.findViewById(R.id.text_view_mean);
+            textView_status = itemView.findViewById(R.id.text_view_status);
+
             btn_edit_word = itemView.findViewById(R.id.bt_edit);
             btn_delete_word = itemView.findViewById(R.id.bt_delete);
         }

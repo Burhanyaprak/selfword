@@ -27,6 +27,17 @@
             android:padding="12dp"
             android:lines="4"
             android:gravity="top"></EditText>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:enabled="false"
+            android:id="@+id/edit_dialog_status"
+            android:hint="Enter Text"
+            android:padding="12dp"
+            android:lines="4"
+            android:gravity="top"></EditText>
+
     </LinearLayout>
 
     <Button
