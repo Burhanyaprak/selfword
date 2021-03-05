@@ -24,9 +24,20 @@ public interface WordDao {
     void update(int sID , String theword, String meanofword);
 
     @Query("UPDATE words_table SET status_of_word = :statusofword WHERE ID = :sID")
-    void updateStatusofWord(int sID, String statusofword);
+    void updateStatusofWord(int sID, int statusofword);
 
     @Query("SELECT * FROM words_table")
     List<WordEntity> getAll();
+
+    @Query("SELECT ID FROM words_table WHERE the_word = :theword")
+    int getIdofWord(String theword);
 }
+
+
+
+
+
+
+
+
 

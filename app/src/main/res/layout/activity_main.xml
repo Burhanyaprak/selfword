@@ -42,7 +42,12 @@
             android:layout_weight="1"
             android:id="@+id/btn_words_reset"
             android:text="Reset"></Button>
-
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:id="@+id/btn_word_quiz"
+            android:text="QUIZ"></Button>
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView

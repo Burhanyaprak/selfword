@@ -19,7 +19,7 @@ public class WordEntity implements Serializable {
     private String mean_of_word;
 
     @ColumnInfo(name = "status_of_word")
-    private String status_of_word;
+    private int status_of_word;
 
     public int getID() {
         return ID;
@@ -45,11 +45,11 @@ public class WordEntity implements Serializable {
         this.mean_of_word = mean_of_word;
     }
 
-    public String getStatus_of_word() {
+    public int getStatus_of_word() {
         return status_of_word;
     }
 
-    public void setStatus_of_word(String status_of_word) {
+    public void setStatus_of_word(int status_of_word) {
         this.status_of_word = status_of_word;
     }
 }

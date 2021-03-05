@@ -45,7 +45,7 @@ public class WordAdapter extends RecyclerView.Adapter <WordAdapter.ViewHolder> {
 
         holder.textView_word.setText(wordEntity.getThe_word());
         holder.textView_mean.setText(wordEntity.getMean_of_word());
-        holder.textView_status.setText(wordEntity.getStatus_of_word());
+        holder.textView_status.setText(""+wordEntity.getStatus_of_word());
         holder.btn_edit_word.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -54,7 +54,7 @@ public class WordAdapter extends RecyclerView.Adapter <WordAdapter.ViewHolder> {
                 int sID = wordEntity.getID();
                 String str_the_word = wordEntity.getThe_word();
                 String str_mean_of_word = wordEntity.getMean_of_word();
-                String str_status_of_word = wordEntity.getStatus_of_word();
+                int str_status_of_word = wordEntity.getStatus_of_word();
 
                 Dialog dialog = new Dialog(context);
 
@@ -77,7 +77,7 @@ public class WordAdapter extends RecyclerView.Adapter <WordAdapter.ViewHolder> {
 
                 editText_dialog_word.setText(str_the_word);
                 editText_dialog_mean.setText(str_mean_of_word);
-                editText_dialog_status.setText(str_status_of_word);
+                editText_dialog_status.setText(""+str_status_of_word);
 
                 btUpdate.setOnClickListener(new View.OnClickListener() {
                     @Override
