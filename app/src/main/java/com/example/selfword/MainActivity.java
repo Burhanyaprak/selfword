@@ -13,13 +13,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     EditText editText_from_Word, editText_to_Word;
-    Button btn_add_word, btn_reset_words, btn_word_quiz;
+    Button btn_add_word, btn_reset_words, btn_word_quiz, btn_list_words;
     RecyclerView recyclerView_words;
 
     List<WordEntity> wordList = new ArrayList<>();
@@ -39,20 +40,9 @@ public class MainActivity extends AppCompatActivity {
         btn_add_word = findViewById(R.id.btn_word_add);
         btn_reset_words = findViewById(R.id.btn_words_reset);
         btn_word_quiz = findViewById(R.id.btn_word_quiz);
+        btn_list_words = findViewById(R.id.btn_list_words);
 
-        recyclerView_words = findViewById(R.id.recycler_view_words);
 
-        wordDatabase = WordDatabase.getInstance(this);
-
-        wordList = wordDatabase.wordDao().getAll();
-
-        linearLayoutManager = new LinearLayoutManager(this);
-
-        recyclerView_words.setLayoutManager(linearLayoutManager);
-
-        wordAdapter = new WordAdapter(MainActivity.this, wordList);
-
-        recyclerView_words.setAdapter(wordAdapter);
 
         btn_add_word.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,7 +83,35 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
+        btn_list_words.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Listwords();
+            }
+        });
     }
+        public void Listwords(){
+            if (btn_list_words.getText().toString().equals("LIST")){
+                recyclerView_words = findViewById(R.id.recycler_view_words);
+                recyclerView_words.setVisibility(View.VISIBLE);
+                wordDatabase = WordDatabase.getInstance(MainActivity.this);
 
+                wordList = wordDatabase.wordDao().getAll();
+
+                linearLayoutManager = new LinearLayoutManager(MainActivity.this);
+
+                recyclerView_words.setLayoutManager(linearLayoutManager);
+
+                wordAdapter = new WordAdapter(MainActivity.this, wordList);
+
+                recyclerView_words.setAdapter(wordAdapter);
+
+                btn_list_words.setText("HIDE");
+            }
+            else {
+                btn_list_words.setText("LIST");
+                recyclerView_words.setVisibility(View.INVISIBLE);
+            }
+
+        }
 }

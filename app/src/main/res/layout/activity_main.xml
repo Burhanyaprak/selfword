@@ -48,6 +48,12 @@
             android:layout_weight="1"
             android:id="@+id/btn_word_quiz"
             android:text="QUIZ"></Button>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:id="@+id/btn_list_words"
+            android:text="LIST"></Button>
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
