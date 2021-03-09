@@ -2,6 +2,7 @@ package com.example.selfword;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -38,7 +39,7 @@ public class QuizActivity extends AppCompatActivity {
         btn_control_answer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (edt_answer.getText().toString().equals(str_answer)){
+                if (edt_answer.getText().toString().toLowerCase().equals(str_answer.toLowerCase())){
                     Toast.makeText(QuizActivity.this, "TRUE", Toast.LENGTH_SHORT).show();
                     String getStrname = wordList.get(answer_current_id).getThe_word();
                     int tmp_status = wordList.get(answer_current_id).getStatus_of_word();
@@ -65,11 +66,28 @@ public class QuizActivity extends AppCompatActivity {
     public String makequiz(){
         Random random = new Random();
         int rnd_word_id = random.nextInt(wordList.size());
-        //Şu 2 satır ile liste uzunluğuna göre(List uzunluğu 5 ise > 0 dahil - 4 dahil) sayı üretir.
-
-        txt_the_word.setText(wordList.get(rnd_word_id).getThe_word());
-        String answer = wordList.get(rnd_word_id).getMean_of_word();
-        answer_current_id = rnd_word_id;
-        return answer;
+        if (wordList.get(rnd_word_id).getStatus_of_word() == 5){
+            int temp_rnd_word_id = random.nextInt(100);
+            if (temp_rnd_word_id<10){
+                txt_the_word.setText(wordList.get(rnd_word_id).getThe_word());
+                String answer = wordList.get(rnd_word_id).getMean_of_word();
+                answer_current_id = rnd_word_id;
+                return answer;
+            }
+            else {
+                makequiz();
+            }
+        }
+        else {
+            txt_the_word.setText(wordList.get(rnd_word_id).getThe_word());
+            String answer = wordList.get(rnd_word_id).getMean_of_word();
+            answer_current_id = rnd_word_id;
+            return answer;
+        }
+        return "";
+    }
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(this, MainActivity.class));
     }
 }

@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         editText_from_Word = findViewById(R.id.edit_the_word);
         editText_to_Word = findViewById(R.id.edit_mean_of_word);
 
@@ -92,5 +93,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
     }
+
 }
