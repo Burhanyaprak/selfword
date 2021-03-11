@@ -25,11 +25,33 @@
         android:id="@+id/edt_answer"
         android:hint="text"></EditText>
 
-    <Button
-        android:layout_width="wrap_content"
+        <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="25dp"
-        android:id="@+id/btn_control_answer"
-        android:text="GO"></Button>
+        android:orientation="vertical"
+        android:layout_margin="8dp">
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="25dp"
+            android:id="@+id/btn_control_answer"
+            android:text="GO"></Button>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="25dp"
+            android:id="@+id/btn_show_wordlength"
+            android:text="Word Length"></Button>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="25dp"
+                android:id="@+id/btn_show_answerhint"
+                android:text="Get Tips"></Button>
+    </LinearLayout>
 
 </LinearLayout>

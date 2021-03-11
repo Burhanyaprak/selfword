@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
         btn_add_word.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -91,6 +92,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
         public void Listwords(){
+
             if (btn_list_words.getText().toString().equals("LIST")){
                 recyclerView_words = findViewById(R.id.recycler_view_words);
                 recyclerView_words.setVisibility(View.VISIBLE);
@@ -101,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
                 linearLayoutManager = new LinearLayoutManager(MainActivity.this);
 
                 recyclerView_words.setLayoutManager(linearLayoutManager);
-
+                
                 wordAdapter = new WordAdapter(MainActivity.this, wordList);
 
                 recyclerView_words.setAdapter(wordAdapter);
